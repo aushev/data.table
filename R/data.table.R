@@ -702,7 +702,7 @@ chmatch2 <- function(x, table, nomatch=NA_integer_) {
             }
             # TO DO: TODO: Incorporate which_ here on DT[!i] where i is logical. Should avoid i = !i (above) - inefficient.
             # i is not a data.table
-            if (!is.logical(i) && !is.numeric(i)) stop("i has not evaluated to logical, integer or double")
+            if (!is.logical(i) && !is.numeric(i)) stop("i has not evaluated to logical, integer or double. i has class ", class(i))
             if (is.logical(i)) {
                 if (isTRUE(i)) irows = i = NULL  # fixes #1249
 		else if (identical(i, NA)) irows=i=integer(0)  # DT[NA] thread recycling of NA logical exists,
